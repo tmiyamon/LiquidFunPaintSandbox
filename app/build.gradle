@@ -1,0 +1,23 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 17
+    buildToolsVersion "23.0.1"
+
+    defaultConfig {
+        applicationId "com.google.fpl.liquidfunpaint"
+        minSdkVersion 9
+        targetSdkVersion 19
+
+        ndk {
+            moduleName "LiquidFunPaint"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
