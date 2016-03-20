@@ -1,23 +1,28 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.model.application'
 
-android {
-    compileSdkVersion 17
-    buildToolsVersion "23.0.1"
+model {
+    android {
+        compileSdkVersion 23
+        buildToolsVersion "23.0.1"
 
-    defaultConfig {
-        applicationId "com.google.fpl.liquidfunpaint"
-        minSdkVersion 9
-        targetSdkVersion 19
+        defaultConfig {
+            applicationId "com.google.fpl.liquidfunpaint"
+            minSdkVersion.apiLevel 9
+            targetSdkVersion.apiLevel 23
+        }
 
         ndk {
             moduleName "LiquidFunPaint"
         }
-    }
 
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        sources {
+            main {
+                jniLibs {
+                    source {
+                        srcDir "src/main/jniLibs"
+                    }
+                }
+            }
         }
     }
 }
